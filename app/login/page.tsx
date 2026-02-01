@@ -58,7 +58,7 @@ const LoginPage = () => {
           withCredentials: true,
         }
       );
-      // console.log(response);
+      console.log(response);
       const userRole = response.data?.user?.role;
 
       // Redirect based on role
@@ -105,14 +105,14 @@ const LoginPage = () => {
             <div className="flex justify-center mb-4">
               <img
                 src="/logo.png" // Replace with your logo path
-                alt="Sacred Heart Logo"
+                alt="New Logo"
                 className="w-24 h-24 object-contain"
               />
             </div>
 
             {/* Title */}
             <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-1 font-mono">
-              Sacred Heart Hostel
+              New Hostel
             </h2>
             <p className="text-sm text-black text-center mb-6">
               St. Joseph's College, Trichy

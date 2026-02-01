@@ -48,13 +48,13 @@ const StudentProfile = () => {
                 <div className="flex justify-center mb-2">
                     <img
                         src="/logo.png"
-                        alt="Sacred Heart Logo"
+                        alt="New Logo"
                         className="w-20 h-20 object-contain"
                     />
                 </div>
                 {/* Title */}
                 <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-1 font-mono">
-                    Sacred Heart Hostel
+                    New Hostel
                 </h2>
                 <p className="text-sm text-black text-center mb-6">
                     St. Joseph's College, Trichy

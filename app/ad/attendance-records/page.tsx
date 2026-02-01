@@ -48,12 +48,12 @@ const Page = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 mb-8">
           <img
             src="/logo.png"
-            alt="Sacred Heart Hostel Logo"
+            alt="New Hostel Logo"
             className="w-24 h-24 sm:w-16 sm:h-16 object-contain"
           />
           <div className="text-center sm:text-left">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 font-mono">
-              Sacred Heart Hostel
+              New Hostel
             </h1>
             <p className="text-sm sm:text-base text-gray-600">
               E-Attendance Records
@@ -116,11 +116,10 @@ const Page = () => {
                         {group.records.map((record, index) => (
                           <tr
                             key={record._id}
-                            className={`transition ${
-                              record.status.toLowerCase() === "present"
+                            className={`transition ${record.status.toLowerCase() === "present"
                                 ? "bg-green-50 hover:bg-green-100"
                                 : "bg-red-50 hover:bg-red-100"
-                            }`}
+                              }`}
                           >
                             <td className="px-2 sm:px-4 py-2">{index + 1}</td>
                             <td className="px-2 sm:px-4 py-2 font-medium">
@@ -134,11 +133,10 @@ const Page = () => {
                             </td>
                             <td className="px-2 sm:px-4 py-2">
                               <span
-                                className={`px-2 py-1 sm:px-3 rounded-full text-[10px] sm:text-xs font-semibold ${
-                                  record.status.toLowerCase() === "present"
+                                className={`px-2 py-1 sm:px-3 rounded-full text-[10px] sm:text-xs font-semibold ${record.status.toLowerCase() === "present"
                                     ? "bg-green-200 text-green-800"
                                     : "bg-red-200 text-red-800"
-                                }`}
+                                  }`}
                               >
                                 {record.status.toUpperCase()}
                               </span>

@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sacred Heart Hostel",
-  description: "e-Attendance System for Sacred Heart Hostel",
+  title: "New Hostel",
+  description: "e-Attendance System for New Hostel",
   icons: {
     icon: "/favicon.ico"
   },

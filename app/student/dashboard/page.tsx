@@ -77,7 +77,7 @@ const StudentDashboard = () => {
                         <div className="flex justify-center mb-2">
                             <img
                                 src="/logo.png"
-                                alt="Sacred Heart Logo"
+                                alt="New Logo"
                                 className="w-24 h-24 object-contain"
                             />
                         </div>
