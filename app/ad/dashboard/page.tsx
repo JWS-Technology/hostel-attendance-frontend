@@ -156,6 +156,12 @@ const AdDashboard = () => {
                 )}
               </button>
               <button
+                onClick={() => router.push("/ad/special-attendance")}
+                className="w-full scale-90 py-2 rounded-lg border bg-black border-black text-white font-semibold transition transform duration-200 hover:bg-white hover:text-black hover:scale-105"
+              >
+                ✝ Special Attendance
+              </button>
+              <button
                 onClick={() => {
                   setIsViewingAnalytics(true);
                   router.push("/ad/analytics");
