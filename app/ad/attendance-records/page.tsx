@@ -23,8 +23,10 @@ type RawAttendance = {
 
 const Page = () => {
   const [attendanceGroups, setAttendanceGroups] = useState<RawAttendance[]>([]);
+  const [filterType, setFilterType] = useState<"all" | "general" | "special">("all");
   const [loading, setloading] = useState(true);
   const router = useRouter();
+
   const getAttendanceData = async () => {
     try {
       const response = await axios.get(
@@ -38,6 +40,12 @@ const Page = () => {
       // console.error("Failed fetching attendance for displaying:", error);
     }
   };
+
+  const filteredAttendance = attendanceGroups.filter((group) => {
+    if (filterType === "all") return true;
+    return group.type === filterType;
+  });
+
   useEffect(() => {
     getAttendanceData();
   }, []);
@@ -66,6 +74,37 @@ const Page = () => {
         >
           🔙 Back to Dashboard
         </button>
+        <div className="flex gap-3 mb-6">
+          <button
+            onClick={() => setFilterType("all")}
+            className={`px-4 py-2 rounded-lg border font-semibold ${filterType === "all"
+              ? "bg-black text-white"
+              : "bg-white text-black border-black"
+              }`}
+          >
+            All
+          </button>
+
+          <button
+            onClick={() => setFilterType("general")}
+            className={`px-4 py-2 rounded-lg border font-semibold ${filterType === "general"
+              ? "bg-black text-white"
+              : "bg-white text-black border-black"
+              }`}
+          >
+            General
+          </button>
+
+          <button
+            onClick={() => setFilterType("special")}
+            className={`px-4 py-2 rounded-lg border font-semibold ${filterType === "special"
+              ? "bg-black text-white"
+              : "bg-white text-black border-black"
+              }`}
+          >
+            Special
+          </button>
+        </div>
         <div className="w-[90vw] space-y-10">
           {loading ? (
             <>
@@ -73,7 +112,7 @@ const Page = () => {
             </>
           ) : (
             <>
-              {attendanceGroups.map((group) => (
+              {filteredAttendance.map((group) => (
                 <div
                   key={group._id}
                   className="bg-white rounded-2xl shadow-md border border-gray-200 p-4 sm:p-6 transition hover:shadow-lg"
@@ -116,11 +155,10 @@ const Page = () => {
                         {group.records.map((record, index) => (
                           <tr
                             key={record._id}
-                            className={`transition ${
-                              record.status.toLowerCase() === "present"
-                                ? "bg-green-50 hover:bg-green-100"
-                                : "bg-red-50 hover:bg-red-100"
-                            }`}
+                            className={`transition ${record.status.toLowerCase() === "present"
+                              ? "bg-green-50 hover:bg-green-100"
+                              : "bg-red-50 hover:bg-red-100"
+                              }`}
                           >
                             <td className="px-2 sm:px-4 py-2">{index + 1}</td>
                             <td className="px-2 sm:px-4 py-2 font-medium">
@@ -134,11 +172,10 @@ const Page = () => {
                             </td>
                             <td className="px-2 sm:px-4 py-2">
                               <span
-                                className={`px-2 py-1 sm:px-3 rounded-full text-[10px] sm:text-xs font-semibold ${
-                                  record.status.toLowerCase() === "present"
-                                    ? "bg-green-200 text-green-800"
-                                    : "bg-red-200 text-red-800"
-                                }`}
+                                className={`px-2 py-1 sm:px-3 rounded-full text-[10px] sm:text-xs font-semibold ${record.status.toLowerCase() === "present"
+                                  ? "bg-green-200 text-green-800"
+                                  : "bg-red-200 text-red-800"
+                                  }`}
                               >
                                 {record.status.toUpperCase()}
                               </span>
