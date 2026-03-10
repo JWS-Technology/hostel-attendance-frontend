@@ -99,7 +99,7 @@ const Page = () => {
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/attendance/mark`,
-        { records: formattedRecords },
+        { records: formattedRecords, type: "general" },
         { withCredentials: true }
       );
       router.push("/ad/attendance-records");
@@ -133,7 +133,7 @@ const Page = () => {
         </div>
       ) : (
         <>
-            <div className="w-screen flex justify-center mt-5">
+          <div className="w-screen flex justify-center mt-5">
             <div className="w-[90vw] flex flex-col justify-center">
               <header className="mb-5">
                 <div className="header-left">
